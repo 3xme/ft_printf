@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 01:49:40 by abiari            #+#    #+#             */
-/*   Updated: 2019/11/20 04:27:09 by abiari           ###   ########.fr       */
+/*   Updated: 2019/11/20 04:36:15 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int				ft_isdigit(int s);
 void			ft_getflags(char *format, t_flags *flags,\
 				va_list *args, int *i);
 void			ft_printd(t_flags flags, va_list *args, int *counter);
+void			ft_printu_width(unsigned int d, t_flags flags, int *counter);
+void			ft_printu_both(unsigned int d, t_flags flags, int *counter);
 int				ft_len(int a);
 int				ft_lenu(unsigned int a);
 int				ft_lenx(unsigned int n);
