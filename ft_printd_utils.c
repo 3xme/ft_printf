@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 01:49:08 by abiari            #+#    #+#             */
-/*   Updated: 2019/11/20 03:39:50 by abiari           ###   ########.fr       */
+/*   Updated: 2019/11/20 04:25:25 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_printsd_width(int d, t_flags flags, int *counter)
 			while (g_spaces-- > 0)
 			{
 				if (flags.zero == 1 && flags.precision <= ft_len(d)\
-				&& flags.precision > 0)
+				&& flags.precision >= 0)
 					ft_putchar(' ', counter);
 				else if (flags.zero == 1)
 					ft_putchar('0', counter);
@@ -87,18 +87,32 @@ void	ft_printsd_width(int d, t_flags flags, int *counter)
 	}
 }
 
+void	ft_printud_prec(int *counter, int d)
+{
+	while (g_spaces-- > 0)
+		ft_putchar(' ', counter);
+	ft_putchar('-', counter);
+	ft_putnbr(d * -1, counter);
+}
+
+void	ft_printud_zero(int *counter, int d)
+{
+	ft_putchar('-', counter);
+	while (g_spaces-- > 0)
+		ft_putchar('0', counter);
+	ft_putnbr(d * -1, counter);
+}
+
 void	ft_printud_width(int d, t_flags flags, int *counter)
 {
 	g_spaces = flags.width - ft_len(d * -1) - 1;
 	if (flags.dash == 0)
 	{
-		if (flags.zero == 1)
-		{
-			ft_putchar('-', counter);
-			while (g_spaces-- > 0)
-				ft_putchar('0', counter);
-			ft_putnbr(d * -1, counter);
-		}
+		if (flags.zero == 1 && flags.precision <= ft_len(d)\
+		&& flags.precision >= 0)
+			ft_printud_prec(counter, d);
+		else if (flags.zero == 1)
+			ft_printud_zero(counter, d);
 		else
 		{
 			while (g_spaces-- > 0)
