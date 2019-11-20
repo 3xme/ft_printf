@@ -3,7 +3,7 @@
 
 int main()
 {
-	ft_printf("|%*p|", 4, (void *)0);
-	printf("\n|%*p|", 4, (void *)0);
+	ft_printf("\n|%05.2x|", 255);
+	printf("\n|%05.2x|", 255);
 	return 0;
 }

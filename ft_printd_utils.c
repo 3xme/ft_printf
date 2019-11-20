@@ -6,7 +6,7 @@
 /*   By: abiari <abiari@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 01:49:08 by abiari            #+#    #+#             */
-/*   Updated: 2019/11/20 02:08:57 by abiari           ###   ########.fr       */
+/*   Updated: 2019/11/20 03:39:50 by abiari           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	ft_printsd_width(int d, t_flags flags, int *counter)
 		{
 			while (g_spaces-- > 0)
 			{
-				if (flags.zero == 1 && d == 0 && flags.precision > 0)
+				if (flags.zero == 1 && flags.precision <= ft_len(d)\
+				&& flags.precision > 0)
 					ft_putchar(' ', counter);
 				else if (flags.zero == 1)
 					ft_putchar('0', counter);
